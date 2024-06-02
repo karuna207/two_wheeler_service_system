@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receptionist Home Page</title>
+  <link rel="stylesheet" href="styles.css"> 
+  <style> 
+    /* Basic CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      {% comment %} margin: 0;
+      padding: 0;  {% endcomment %}
+      background-image:url('../static/black_bike.jpg');  
+
+
+    
+    } 
+{% comment %} 
+    section{
+      background-color:#BEB7A4
+    } {% endcomment %}
+    
+    header {
+       background-color:#808080;
+      color: #fff; 
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    h1 {
+      margin: 0;  
+      color:black;
+      
+    } 
+    h2{
+      color:black;
+    }
+    
+    main {
+      padding: 20px; 
+      
+    }
+    
+    .options {
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto; 
+      background-color:white;
+    }
+    
+    .option {
+      margin-bottom: 15px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    a:hover {
+      background-color:#808080 ;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Receptionist Dashboard</h1>
+  </header>
+  
+  <main>
+    <section class="options">
+      <h2>Options:</h2>
+      <div class="option">
+        <a href="receptionist_dashboard/jobcard">Create Job Card</a>
+      </div>
+      <div class="option">
+        <a href="receptionist_dashboard/addmechanic">Add Mechanic</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

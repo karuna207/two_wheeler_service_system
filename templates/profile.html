@@ -1,0 +1,245 @@
+{% comment %} {% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <!-- Other content of the profile page -->
+</body>
+</html> {% endcomment %} 
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mech DashBoard</title>
+
+  <style> 
+    h1{
+      color:white; 
+     
+      justify-content:flex-start;  
+      align-items:flex-start;
+ 
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100vh;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      background-color: #808080;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(100, 100, 100, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      color: white;
+    }
+
+    .card p {
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>AVAILABLE JOB CARDS</h1><br>
+  <div class="card-container">
+    <form method="post" action='mechaniclogin/update'> 
+    {% csrf_token %}
+    {% for job_card in job_cards %}
+      <div class="card">
+        <h2>{{ job_card.vehicle_reg_number }}</h2>
+        <p><strong>Owner:</strong> {{ job_card.owner_details }}</p>
+        <p><strong>Engine Number:</strong> {{ job_card.engine_number }}</p>
+        <p><strong>Service Type:</strong> {{ job_card.service_type }}</p>
+        <p><strong>Expected Delivery Date:</strong> {{ job_card.expected_delivery_date }}</p>
+        <input type="submit" value="Complete">
+        <input type="hidden" id="job_card" name="job_card" value="{{job_card.owner_details}}">
+      </div>
+    {% endfor %}
+    </form>
+  </div>
+
+</body>
+
+</html> {% endcomment %} 
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mech DashBoard</title>
+
+  <style>
+    h1 {
+      color: white;
+      text-align: left; /* Align text to the left */
+      margin-left: 20px; /* Add margin for better positioning */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
+      height: 100vh;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+    }
+
+    .card {
+      background-color: #808080;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(100, 100, 100, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2,
+    .card p {
+      color: white;
+    }
+  </style>
+
+</head>
+<h1>AVAILABLE JOB CARDS</h1><br>
+<body>
+
+  <div class="card-container">
+    <form method="post" action='mechaniclogin/update'>
+      {% csrf_token %}
+      {% for job_card in job_cards %}
+      <div class="card">
+        <h2>{{ job_card.vehicle_reg_number }}</h2>
+        <p><strong>Owner:</strong> {{ job_card.owner_details }}</p>
+        <p><strong>Engine Number:</strong> {{ job_card.engine_number }}</p>
+        <p><strong>Service Type:</strong> {{ job_card.service_type }}</p>
+        <p><strong>Expected Delivery Date:</strong> {{ job_card.expected_delivery_date }}</p>
+        <input type="submit" value="Complete">
+        <input type="hidden" id="job_card" name="job_card" value="{{job_card.owner_details}}">
+      </div>
+      {% endfor %}
+    </form>
+  </div>
+</body>
+
+</html> {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mech DashBoard</title>
+
+  <style>
+    h1 {
+      color: black;
+      text-align: left; /* Align text to the left */
+      margin: 20px; /* Add margin for better positioning */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image:url('static/black_bike.jpg'); 
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center items horizontally */
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+    }
+
+    .card {
+      background-color: #808080;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(100, 100, 100, 0.1);
+      margin: 10px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2,
+    .card p {
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>AVAILABLE JOB CARDS</h1><br>
+  <div class="card-container">
+    <form method="post" action='mechaniclogin/update'>
+      {% csrf_token %}
+      {% for job_card in job_cards %}
+      <div class="card">
+        <h2>{{ job_card.vehicle_reg_number }}</h2>
+        <p><strong>Owner:</strong> {{ job_card.owner_details }}</p>
+        <p><strong>Engine Number:</strong> {{ job_card.engine_number }}</p>
+        <p><strong>Service Type:</strong> {{ job_card.service_type }}</p>
+        <p><strong>Expected Delivery Date:</strong> {{ job_card.expected_delivery_date }}</p>
+        <input type="submit" value="Complete">
+        <input type="hidden" id="job_card" name="job_card" value="{{job_card.owner_details}}">
+      </div>
+      {% endfor %}
+    </form>
+  </div>
+</body>
+
+</html>
